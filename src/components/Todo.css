@@ -1,0 +1,12 @@
+.todo {
+    display: flex;
+    flex-direction: row;
+}
+
+.text {
+    border: 1px solid black;
+}
+.fa-solid {
+    height: 10px;
+    width: 5px;
+}
