@@ -6,11 +6,24 @@ function Todo({ todo, todos, setTodos }) {
   const deleteHandler = () => {
     setTodos(todos.filter((el) => el.id !== todo.id));
   };
+
+  const completeHandler = () => {
+    setTodos(
+      todos.map((item) => {
+        if (item.id === todo.id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    );
+  };
   return (
     <div className="todo">
-      <li className="text">{todo.text}</li>
+      <li className={`todo-text ${todo.completed ? "completed" : ""}`}>
+        {todo.text}
+      </li>
       <button>
-        <FontAwesomeIcon icon={faCheck} />
+        <FontAwesomeIcon icon={faCheck} onClick={completeHandler} />
       </button>
       <button>
         <FontAwesomeIcon icon={faTrashCan} onClick={deleteHandler} />
