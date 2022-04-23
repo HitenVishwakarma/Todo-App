@@ -2,11 +2,11 @@ import { keyboard } from "@testing-library/user-event/dist/keyboard";
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todos, setTodos, filterTodos }) => {
   return (
     <div>
       <ul>
-        {todos?.map((item) => (
+        {filterTodos?.map((item) => (
           <Todo
             key={item.id}
             // text={item.text}
